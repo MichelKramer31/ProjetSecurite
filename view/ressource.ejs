@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des notes acceuil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Application de gestion des notes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link" aria-current="page" href="/ue1">UE1</a>
+                </li>
+                <li>
+                    <a class="nav-link" aria-current="page" href="/ue2">UE2</a>
+                </li>
+                <li>
+                    <a class="nav-link" aria-current="page" href="/ue3">UE3</a>
+                </li>
+            </ul>
+            <form class="d-flex" method="get" action="/logout">
+                <button class="btn btn-success"><%= user.name %></button>
+                <button class="btn btn-outline-warning" type="submit" >Se deconnecter</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<main role="main" class="container">
+    <div class="jumbotron">
+        <h1>Les notes pour l'UE <%= ue %></h1>
+
+        <form action="/ue<%= ue %>/enregistrer" method="post" >
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Rafael</span>
+            <input type="text" name="note_rafael" class="form-control" value="<%= notes.rafael %>" aria-label="note_raf_ue1" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Michel</span>
+            <input type="text" name="note_michel" class="form-control" value="<%= notes.michel %>" aria-label="note_mich_ue1" aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+        <p><%= message %></p>
+
+        <p><%= notes.valide %></p>
+
+            <button type="submit"  class="btn btn-secondary btn-lg">Enregistrer</button>
+        </form>
+        <form action="/ue<%= ue %>/valider" method="get">
+            <button type="submit" class="btn btn-secondary btn-lg">Valider les notes</button>
+        </form>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
